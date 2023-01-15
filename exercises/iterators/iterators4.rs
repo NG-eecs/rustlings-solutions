@@ -1,8 +1,6 @@
 // iterators4.rs
 // Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 pub fn factorial(num: u64) -> u64 {
     // Complete this function to return the factorial of num
     // Do not use:
@@ -14,7 +12,24 @@ pub fn factorial(num: u64) -> u64 {
     // - recursion
     // Execute `rustlings hint iterators4` for hints.
     //
-    (1..=num).product()
+    // u128 can calc to factorial(34)
+    // #1
+    //(1..=num).product()
+    //
+    // #2
+    //
+    //match num {
+    //    0 => 1,
+    //    1 => 1,
+    //    _ => factorial(num - 1) * num,
+    //}
+    //
+    // #3
+    // 1*2*3*4
+    //(1..=num).fold(1, |acc, x| acc * x);
+    // #4
+    // 4*3*2*1
+    (1..=num).rfold(1, |acc, x| acc * x)
 }
 
 #[cfg(test)]
